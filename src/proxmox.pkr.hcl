@@ -36,7 +36,7 @@ source "proxmox-iso" "proxmox-debian-11" {
           "netcfg/get_nameservers=188.93.16.19 8.8.8.8 ",
           "netcfg/confirn_static=true <wait> ",
           "debian-installer/allow_unauthenticated_ssl=true ",
-          "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
+          "preseed/url=https://raw.githubusercontent.com/sabbath666/packer-debian-example/master/src/http/preseed.cfg <wait>",
           "<enter><wait>"
         ]  
   boot_wait  = "2s"
