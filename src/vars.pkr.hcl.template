@@ -18,3 +18,8 @@ variable "ssh_pass" {
   description = "SSH Password"
   default     = "$packer_password"
 }
+variable "host_ip" {
+  type        = string
+  description = "Host IP"
+  default     = "$packer_host_ip"
+}
