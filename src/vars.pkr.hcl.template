@@ -11,12 +11,12 @@ variable "pm_pass" {
 variable "ssh_user" {
   type        = string
   description = "SSH User"
-  default     = "$packer_username"
+  default     = "$ssh_username"
 }
 variable "ssh_pass" {
   type        = string
   description = "SSH Password"
-  default     = "$packer_password"
+  default     = "$ssh_password"
 }
 variable "host_ip" {
   type        = string

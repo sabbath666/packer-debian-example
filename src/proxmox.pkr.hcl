@@ -53,7 +53,7 @@ source "proxmox-iso" "proxmox-debian-11" {
   sockets    = 1
   os         = "l26"
   qemu_agent = true
-# disable_kvm = true
+
   disks {
     type              = "scsi"
     disk_size         = "15G"
@@ -61,6 +61,7 @@ source "proxmox-iso" "proxmox-debian-11" {
     storage_pool_type = "lvm"
     format            = "raw"
   }
+
   network_adapters {
     bridge   = "vmbr0"
     model    = "virtio"
