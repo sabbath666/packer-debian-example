@@ -1,12 +1,12 @@
 variable "pm_user" {
   type        = string
   description = "Proxmox User Name"
-  default     = "$packer_username"
+  default     = "$proxmox_username"
 }
 variable "pm_pass" {
   type        = string
   description = "Proxmox User Password"
-  default     = "$packer_password"
+  default     = "$proxmox_password"
 }
 variable "ssh_user" {
   type        = string
