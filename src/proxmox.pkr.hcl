@@ -43,7 +43,7 @@ source "proxmox-iso" "proxmox-debian-11" {
 
   insecure_skip_tls_verify = true
 
-  template_name        = "packer-debian-11"
+  template_name        = "debian-11-template"
   template_description = "packer generated debian-11.4.0-amd64"
   unmount_iso          = true
   
