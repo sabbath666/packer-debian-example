@@ -9,7 +9,7 @@ packer {
 
 source "proxmox-iso" "proxmox-debian-11" {
   proxmox_url = "https://45.12.65.130:8006/api2/json"
-  vm_name     = "new-sabbath-debian"
+  vm_name     = "sabbath-debian"
   iso_file    = "local:iso/debian-11.4.0-amd64-DVD-1.iso"
   iso_checksum = "32c7ce39dbc977ce655869c7bd744db39fb84dff1e2493ad56ce05c3540dfc40"
   username         = "${var.pm_user}"
