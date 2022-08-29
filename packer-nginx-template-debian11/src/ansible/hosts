@@ -1,0 +1,2 @@
+[webservers]
+nginx ansible_host=45.12.65.136 ansible_port=22

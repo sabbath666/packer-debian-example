@@ -1,0 +1,2 @@
+This packer's code generating template vm for proxmox, with preinstalled nginx and passwordless sudo for user 'packer'.
+For starting this code you need to add variables with user/pass for your proxmox and vm.
