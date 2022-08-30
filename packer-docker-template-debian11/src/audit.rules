@@ -15,5 +15,11 @@
 -w /usr/bin/docker-runc -p rwxa -k docker
 -w /etc/passwd -p rwxa -k docker
 -w /etc/sysconfig/docker -p rwxa -k docker
--w /usr/bin/containerd -p rwxa -k docker
+-w /run/containerd -p rwxa -k docker
 -w /usr/bin/dockerd -p rwxa -k docker
+-w /etc/containerd/config.toml -p rwxa -k docker
+-w /usr/bin/containerd -p rwxa -k docker
+-w /usr/bin/containerd-shim -p rwxa -k docker
+-w /usr/bin/containerd-shim-runc-v1 -p rwxa -k docker
+-w /usr/bin/containerd-shim-runc-v2 -p rwxa -k docker
+-w /usr/bin/runc -p rwxa -k docker
