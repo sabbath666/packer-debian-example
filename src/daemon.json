@@ -1,0 +1,27 @@
+{
+  "userland-proxy": false,
+  "seccomp-profile": "",
+  "experimental": false,
+  "icc": false,
+  "live-restore": true,
+  "no-new-privileges": true,
+  "cgroup-parent": "docker",
+  "userns-remap": "default",
+  "log-level": "info",
+  "iptables": true,
+  "insecure-registries": [],
+  "tls": true,
+  "tlsverify": true,
+  "default-ulimits": {
+    "nofile": {
+      "Hard": 200,
+      "Name": "nofile",
+      "Soft": 200
+    },
+    "nproc": {
+      "Hard": 2408,
+      "Name": "nproc",
+      "Soft": 2408
+    }
+  }
+}
