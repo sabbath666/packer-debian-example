@@ -9,7 +9,7 @@ packer {
 
 source "proxmox-iso" "proxmox-debian-11" {
   proxmox_url = "https://45.12.65.130:8006/api2/json"
-  vm_name     = "destory-debian"
+  vm_name     = "debian-docker-template"
   iso_file    = "local:iso/debian-11.4.0-amd64-netinst.iso"
   iso_checksum = "32c7ce39dbc977ce655869c7bd744db39fb84dff1e2493ad56ce05c3540dfc40"
   username         = "${var.pm_user}"
@@ -36,7 +36,7 @@ source "proxmox-iso" "proxmox-debian-11" {
           "netcfg/get_nameservers=188.93.16.19 8.8.8.8 ",
           "netcfg/confirn_static=true <wait> ",
           "debian-installer/allow_unauthenticated_ssl=true ",
-          "preseed/url=https://raw.githubusercontent.com/Hexacosidedroid/packer-docker-template-debian11/master/src/http/preseed-debian.cfg <wait>",
+          "preseed/url=https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/preseed-debian.cfg <wait>",
           "<enter><wait>"
         ]  
   boot_wait  = "2s"
