@@ -100,6 +100,9 @@ build {
       "auditctl -a exit,always -F path=/lib/systemd/system/docker.service -F perm=rwa",
       "auditctl -a exit,always -F path=/lib/systemd/system/docker.socket -F perm=rwa",
       "service auditd restart",
+      "docker network ls --quiet | xargs docker network inspect --format '{{ .Name }}: {{ .Options }}'",
+
+
       "docker pull hello-world",
       "docker run -d --name hello-world hello-world",
       "openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out /etc/ssl/nginx.crt -keyout /etc/ssl/nginx.key -subj '/C=RU/ST=Denial/L=Rostov-on-Don/O=CIB/CN=localhost'"
