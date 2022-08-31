@@ -30,7 +30,7 @@ source "proxmox-iso" "proxmox-debian-11" {
           "netcfg/disable_dhcp=true ",
           "netcfg/disable_autoconfig=true ",
           "netcfg/use_autoconfig=false ",
-          "netcfg/get_ipaddress=45.12.65.137 ",
+          "netcfg/get_ipaddress=45.12.65.138 ",
           "netcfg/get_netmask=255.255.240.0 ",
           "netcfg/get_gateway=45.12.65.129 ",
           "netcfg/get_nameservers=188.93.16.19 8.8.8.8 ",
