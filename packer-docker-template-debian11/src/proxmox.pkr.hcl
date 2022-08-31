@@ -76,9 +76,9 @@ build {
     inline          = [
       "apt-get update",
       "apt-get remove --purge apache2 apache2-utils -y",
+      "apt-get install ca-certificates curl gnupg lsb-release -y",
       "curl https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/daemon.json --output /etc/docker/daemon.json",
       "curl https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/audit.rules --output /etc/audit/rules.d/audit.rules",
-      "apt-get install ca-certificates curl gnupg lsb-release -y",
       "mkdir -p /etc/apt/keyrings",
       "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg",
       "echo \\",
