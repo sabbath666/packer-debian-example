@@ -36,7 +36,7 @@ source "proxmox-iso" "proxmox-debian-11" {
     "netcfg/get_nameservers=188.93.16.19 8.8.8.8 ",
     "netcfg/confirn_static=true <wait> ",
     "debian-installer/allow_unauthenticated_ssl=true ",
-    "preseed/url=https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/preseed-debian.cfg <wait>",
+    "preseed/url=https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/preseed.cfg <wait>",
     "<enter><wait>"
   ]
   boot_wait = "2s"
@@ -48,8 +48,8 @@ source "proxmox-iso" "proxmox-debian-11" {
   unmount_iso          = true
 
   pool       = "admins"
-  memory     = 2048
-  cores      = 2
+  memory     = 4000
+  cores      = 4
   sockets    = 1
   os         = "l26"
   qemu_agent = true
@@ -77,7 +77,6 @@ build {
       "apt-get update",
       "apt-get remove --purge apache2 apache2-utils -y",
       "apt-get install ca-certificates curl gnupg lsb-release -y",
-      "curl https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/daemon.json --output /etc/docker/daemon.json",
       "curl https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/audit.rules --output /etc/audit/rules.d/audit.rules",
       "mkdir -p /etc/apt/keyrings",
       "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg",
@@ -92,6 +91,8 @@ build {
       "docker network ls --quiet | xargs docker network inspect --format '{{ .Name }}: {{ .Options }}'",
       "docker pull hello-world",
       "docker run -d --name hello-world hello-world",
+      "curl https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/daemon.json --output /etc/docker/daemon.json",
+      "systemctl restart docker",
       "service auditd start",
       "git clone https://github.com/docker/docker-bench-security.git",
       "openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out /etc/ssl/nginx.crt -keyout /etc/ssl/nginx.key -subj '/C=RU/ST=Denial/L=Rostov-on-Don/O=CIB/CN=localhost'"
