@@ -49,14 +49,14 @@ source "proxmox-iso" "proxmox-debian-11" {
   
   pool       = "admins"
   memory     = 2048
-  cores      = 1
+  cores      = 2
   sockets    = 1
   os         = "l26"
   qemu_agent = true
 
   disks {
     type              = "scsi"
-    disk_size         = "15G"
+    disk_size         = "25G"
     storage_pool      = "local"
     storage_pool_type = "lvm"
     format            = "raw"
