@@ -10,14 +10,14 @@
   "no-new-privileges": true,
   "default-ulimits": {
     "nproc": {
-      "Hard": 1024,
+      "Hard": 2048,
       "Name": "nproc",
       "Soft": 2048
     },
     "nofile": {
-      "Hard": 100,
+      "Hard": 2048,
       "Name": "nofile",
-      "Soft": 200
+      "Soft": 2048
     }
   },
   "insecure-registries": []

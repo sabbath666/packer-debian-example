@@ -9,7 +9,7 @@ packer {
 
 source "proxmox-iso" "proxmox-debian-11" {
   proxmox_url      = "https://45.12.65.130:8006/api2/json"
-  vm_name          = "debian-docker-template-sabbath"
+  vm_name          = "debian-docker-template-destory"
   iso_file         = "local:iso/debian-11.4.0-amd64-netinst.iso"
   iso_checksum     = "32c7ce39dbc977ce655869c7bd744db39fb84dff1e2493ad56ce05c3540dfc40"
   username         = "${var.pm_user}"
@@ -30,7 +30,7 @@ source "proxmox-iso" "proxmox-debian-11" {
     "netcfg/disable_dhcp=true ",
     "netcfg/disable_autoconfig=true ",
     "netcfg/use_autoconfig=false ",
-    "netcfg/get_ipaddress=45.12.65.138 ",
+    "netcfg/get_ipaddress=45.12.65.139 ",
     "netcfg/get_netmask=255.255.240.0 ",
     "netcfg/get_gateway=45.12.65.129 ",
     "netcfg/get_nameservers=188.93.16.19 8.8.8.8 ",
@@ -43,7 +43,7 @@ source "proxmox-iso" "proxmox-debian-11" {
 
   insecure_skip_tls_verify = true
 
-  template_name        = "debian-11-docker-template-sabbath"
+  template_name        = "debian-11-docker-template-2"
   template_description = "packer generated debian-11.4.0-amd64"
   unmount_iso          = true
 
@@ -96,6 +96,7 @@ build {
       "service auditd start",
       "git clone https://github.com/docker/docker-bench-security.git",
       "openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out /etc/ssl/nginx.crt -keyout /etc/ssl/nginx.key -subj '/C=RU/ST=Denial/L=Rostov-on-Don/O=CIB/CN=localhost'"
+      "sudo deluser packer sudo"
     ]
   }
 }
