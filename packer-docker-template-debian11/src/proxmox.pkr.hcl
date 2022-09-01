@@ -95,8 +95,8 @@ build {
       "systemctl restart docker",
       "service auditd start",
       "git clone https://github.com/docker/docker-bench-security.git",
-      "openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out /etc/ssl/nginx.crt -keyout /etc/ssl/nginx.key -subj '/C=RU/ST=Denial/L=Rostov-on-Don/O=CIB/CN=localhost'"
-      "sudo deluser packer sudo"
+      "openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out /etc/ssl/nginx.crt -keyout /etc/ssl/nginx.key -subj '/C=RU/ST=Denial/L=Rostov-on-Don/O=CIB/CN=localhost'",
+      "rm /etc/sudoers.d/packer"
     ]
   }
 }
