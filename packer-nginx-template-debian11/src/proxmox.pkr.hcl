@@ -1,4 +1,4 @@
-packer {
+dockpacker {
   required_plugins {
     proxmox = {
       version = " >= 1.0.1"

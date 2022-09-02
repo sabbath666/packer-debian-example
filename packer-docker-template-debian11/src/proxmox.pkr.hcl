@@ -34,7 +34,7 @@ source "proxmox-iso" "proxmox-debian-11" {
     "netcfg/get_netmask=255.255.240.0 ",
     "netcfg/get_gateway=45.12.65.129 ",
     "netcfg/get_nameservers=188.93.16.19 8.8.8.8 ",
-    "netcfg/confirn_static=true <wait> ",
+    "netcfg/confirm_static=true <wait> ",
     "debian-installer/allow_unauthenticated_ssl=true ",
     "preseed/url=https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/preseed.cfg <wait>",
     "<enter><wait>"
