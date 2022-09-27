@@ -36,14 +36,14 @@ source "proxmox-iso" "proxmox-debian-11" {
     "netcfg/get_nameservers=188.93.16.19 8.8.8.8 ",
     "netcfg/confirn_static=true <wait> ",
     "debian-installer/allow_unauthenticated_ssl=true ",
-    "preseed/url=https://raw.githubusercontent.com/sabbath666/packer-debian-example/feature/diffent-templates/packer-docker-template-debian11/src/http/preseed.cfg <wait>",
+    "preseed/url=https://raw.githubusercontent.com/sabbath666/packer-debian-example/dev/remove_sudo/packer-docker-template-debian11/src/http/preseed.cfg <wait>",
     "<enter><wait>"
   ]
   boot_wait = "2s"
 
   insecure_skip_tls_verify = true
 
-  template_name        = "debian-11-docker-template-2"
+  template_name        = "debian-11-docker-template-cloud-init"
   template_description = "packer generated debian-11.4.0-amd64"
   unmount_iso          = true
 
@@ -96,7 +96,14 @@ build {
       "service auditd start",
       "git clone https://github.com/docker/docker-bench-security.git",
       "openssl req -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out /etc/ssl/nginx.crt -keyout /etc/ssl/nginx.key -subj '/C=RU/ST=Denial/L=Rostov-on-Don/O=CIB/CN=localhost'",
-      "rm /etc/sudoers.d/packer"
+      "apt-get install cloud-init -y",
+      "rm -rf /etc/netplan/00-installer-config.yaml",
+      "rm -rf /etc/cloud/cloud.cfg.d/99-installer.cfg",
+      "rm -rf /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg",
+      "truncate -s 0 /etc/machine-id",
+      "rm /etc/sudoers.d/packer",
+      "adduser packer sudo",
+      "exit 0"
     ]
   }
 }
